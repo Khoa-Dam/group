@@ -1165,6 +1165,23 @@
   }
 }
 
+@media (max-width: 480px) {
+  .tech-item {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+    gap: 4px;
+  }
+
+  .tech-item img {
+    width: 14px;
+    height: 14px;
+  }
+
+  .project-tech {
+    gap: 8px;
+  }
+}
+
 /* ====== FOOTER ====== */
 .site-footer {
   background: var(--bg);
