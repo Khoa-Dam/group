@@ -1,3 +1,31 @@
+// === Header scroll effect ===
+(() => {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  const updateHeader = () => {
+    const scrollY = window.scrollY;
+
+    // Add scrolled class when scrolled down
+    header.classList.toggle('scrolled', scrollY > 50);
+
+    lastScrollY = scrollY;
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateHeader);
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
 // === Mobile menu toggle ===
 (() => {
   const menuBtn = document.getElementById("menuToggle");
@@ -29,6 +57,13 @@
     const withinNav = e.target.closest("#primaryNav");
     const isMenuBtn = e.target.closest("#menuToggle");
     if (!withinHeader && !withinNav && !isMenuBtn) closeMenu();
+  });
+
+  // Close menu on escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && nav.classList.contains("is-open")) {
+      closeMenu();
+    }
   });
 })();
 
