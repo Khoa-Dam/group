@@ -1164,3 +1164,22 @@
     align-self: center;
   }
 }
+
+/* ====== FOOTER ====== */
+.site-footer {
+  background: var(--bg);
+  margin-top: 2rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-inner small {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
